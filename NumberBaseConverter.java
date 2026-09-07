@@ -45,11 +45,11 @@ public class NumberBaseConverter
         //if the original base is decimal or octal, it will run another conditional that checks if unsigned is true and originalBase is less than 0.
         if (from.equalsIgnoreCase("decimal") || from.equalsIgnoreCase("octal"))
         {
-            //if the number is unsigned binary but the originalBase is less than 0 (negative), it will not let user continue until they answer put in a positive number, or 0.
-            if (unsigned && Long.parseLong(originalBase) < 0)
+            //if the number is unsigned binary but the originalBase starts with a - sign (making it negative),  it will not let user continue until they answer put in a positive number, or 0.
+            if (unsigned && Long.parseUnsignedLong(originalBase) < 0)
             {
 
-                while (Long.parseLong(originalBase) < 0)
+                while (originalBase.startsWith("-")) //causes max 64 bit unsigned from not working
                 {
                     System.out.println("This number cannot be given as unsigned. Please reenter a number");
                     originalBase = keyboard.next();
@@ -61,7 +61,7 @@ public class NumberBaseConverter
         if (from.equalsIgnoreCase("decimal"))
         {
             // the number in originalBase is parsed into a long
-            long originalBaseAsLong = Long.parseLong(originalBase);
+            long originalBaseAsLong = Long.parseUnsignedLong(originalBase);
             //if converting into binary
             if (to.equalsIgnoreCase("binary"))
             {
