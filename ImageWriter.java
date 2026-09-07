@@ -50,8 +50,9 @@ public class ImageWriter
 
                 }
                 //closes the fileReader
-                fileReader.close();
+
             }
+            fileReader.close();
 
         }
         //catches IOException
