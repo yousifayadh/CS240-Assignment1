@@ -124,7 +124,7 @@ public class NumberBaseConverter
                 binaryAsDecimal = Long.parseUnsignedLong(originalBase, 2);
                 binaryAsDecimalString = Long.toUnsignedString(binaryAsDecimal);
             }
-            //otherwise, if the binary is negative, it adds 1's to the beginning until the vallue of originalBase is 64 characters in length (trailing 1's which is why code checks if it's negative)
+            //otherwise, if the binary is negative, it adds 1's to the beginning until the value of originalBase is 64 characters in length (trailing 1's which is why code checks if it's negative)
             else
             {
                 if (isItNegative.equalsIgnoreCase("yes"))
